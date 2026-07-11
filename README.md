@@ -35,3 +35,30 @@ Those standalone repositories often involve collaboration with my classmates, as
 | | **Multi-Agent Systems & Distributed Decision Making**<br>*_Sistemas multiagente y toma de decisiones distribuidas_* | UPCOMING | Agent architectures (reactive/deliberative), multi-agent LLM orchestration & reproducible simulations |
 | | **Explainable Artificial Intelligence (XAI)**<br>*_Inteligencia Artificial explicativa_* | UPCOMING | Model interpretability, inherent vs. post-hoc explanations, visualization tools & attribution algorithms |
 | <br>**Trimester 5** | **Capstone Project (AFG)** | UPCOMING | Applied project in Data Science (advanced analytics/management) or AI (DL/CV/NLP frameworks) |
+
+
+## Reposority Structure
+
+Every trimester have a folder per course, is tructured to separate theoretical understanding from hands-on practice:
+
+```
+master-data-science-ai
+├── README.md
+└── trimester-1
+    ├── mcdi500
+    │   ├── labs
+    │   ├── notes
+    │   ├── project
+    │   └── README.md
+    └── mcdi501
+        ├── labs
+        ├── notes
+        ├── project
+        └── README.md
+```
+
+Where:
+
+- `notes/`: Markdown summaries, mathematical formulations, and cheatsheets.
+- `labs/`: Jupyter Notebooks, raw scripts, and data pipelines built during lectures.
+- `project/`: Links (Git submodules) to the official academic deliverables.
