@@ -1,5 +1,20 @@
 # Data Preparation
 
+## Data Cleaning
+The data cleaning is the first critical step. The raw data most of the times have issues that must be corrected.
+
+### Common Issues
+
+| Problem | Description | Example |
+|---------|-------------|---------|
+| Missing Values | Empty cells or NaN | age = NaN |
+| Duplicates | Repeated rows | Same client twice |
+| Typing errors | Inconsistencies in text | "Man", "man", "M"|
+| Invalid values | Out of logical range | age = -5, age = 250 |
+| Incorrect types | Numeric variable as text | price = "$1,234.56" |
+| Extreme outliers | Outliers | income = $10,000,000,000 |
+| Inconsistencies | Contradictions | age = 10, occupation = "CEO" |
+
 ## Missing Value Treatment
 
 ### Types of Missing Values
@@ -20,7 +35,7 @@
   - **Impact:** High, it can introduce severe bias.
 
 
-### Strategies
+#### Treatment Strategies
 
 | Strategy | When to Use | Pros / Cons |
 | :--- | :--- | :--- |
@@ -30,3 +45,11 @@
 | **Mean/Median Imputation** | Numerical variables, symmetric distribution | `+` Preserves the mean / `-` Distorts (reduces) variance |
 | **Mode Imputation** | Categorical variables | `+` Preserves distribution / `-` Biases towards the mode |
 | **Advanced Imputation (e.g., KNN, MICE)** | Critical data, MAR | `+` Preserves feature relationships / `-` Computationally complex |
+
+## Coding of Categorical Variables
+
+### Types of Categorical Variables
+
+### One-Hot Encoding
+
+### Label Encoding
