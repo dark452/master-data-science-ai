@@ -1,6 +1,7 @@
 # Data Preparation
 
 ## Data Cleaning
+
 The data cleaning is the first critical step. The raw data most of the times have issues that must be corrected.
 
 ### Common Issues
@@ -53,3 +54,39 @@ The data cleaning is the first critical step. The raw data most of the times hav
 ### One-Hot Encoding
 
 ### Label Encoding
+
+## Scaling of Numerical Variables
+
+### Why Scaling?
+
+### Scaling Methods
+
+### Standarization (StandardScaler)
+
+### Normalization (MinMaxScaler)
+
+## Train/Test Division
+
+The correct division in train/test is critical. It's the machanism that guarantees honest evaluation.
+
+### Fundamental Principle
+
+**Train/Test split**: Splitting data into two disjoint sets:
+
+- **Train**: Used to adjust/train the model. Typically 70-80% of the data. The model learns from this data.
+- **Test**: Used only for the final evaluation. Typically 20-30% of the data. The model never sees this data during the traininig. Simulates future/new data.
+- **Objetive**: Estimate how well the model will generalize to new data.
+
+
+```mermaid
+flowchart TD
+    A["Dataset 100%"] 
+    A --> B["Train (70-80%)"]
+    A --> C["Test (20-30%)"]
+```
+
+### Implementation with sklearn
+
+### Stratified Division
+
+## Complete Pipeline Preparation
