@@ -87,6 +87,35 @@ flowchart TD
 
 ### Implementation with sklearn
 
-### Stratified Division
+```python
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+  X,  # Features (matrix)
+  y,  # Target (array)
+  test_size =0.2, # 20% for testing
+  random_state=42 # Seed for reproducibility
+)
+```
+
+The important parameters:
+
+- test_size: Proportion for testing ( 0.2 = 20%)
+- random_state: Random seed (reproducibility)
+- stratify: Keep class distribution (classification)
+- shuffle: Mix before dividing (default: True)
+
+### Stratified Split
+
+In classification problems with unbalanced classes, we want to keep the same proportion of classes in train and test.
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+  X, y, 
+  test_size =0.2, # 20% for testing
+  random_state=42, # Seed for reproducibility
+  stratify=y # keep class distribution
+)
+```
 
 ## Complete Pipeline Preparation
