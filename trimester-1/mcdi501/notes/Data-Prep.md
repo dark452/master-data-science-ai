@@ -49,11 +49,45 @@ The data cleaning is the first critical step. The raw data most of the times hav
 
 ## Coding of Categorical Variables
 
+Machine learning algorithms work with numbers, not text. We need to convert categorical variables into numeric format.
+
 ### Types of Categorical Variables
+
+**Classification:**
+
+- Nominal: Without inherent order
+  - Examples: Gender, color, country, product category
+  - Coding: One-Hot Encoding
+- Ordinals: with natural order
+  - Examples: Education (primary < secondary < university), satisfaction (low < medium < high)
+  - Coding: Label Encoding or Ordinal Encoding
 
 ### One-Hot Encoding
 
+Convert each category into a binary column (0/1). The color variable with values: {Red, Green, Blue} becomes 3 columns:
+
+| Original | Color_Red | Color_Green | Color_Blue |
+|----------|-----------|-------------|------------|
+| Red | 1 | 0 | 0 |
+| Green | 0 | 1 | 0 |
+| Blue | 0 | 0 | 1 |
+| Red | 1 | 0 | 0 |
+
+**Advantage**: It doesn't impose artificial order
+
+**Disadvantage**: It increases dimensionality
+
 ### Label Encoding
+
+Convert each category to an integer. The variable education: {Primary, Secondary, University} becomes:
+
+| Original | Enconded |
+|----------|----------|
+| Primary | 0 |
+| Secondary | 1 |
+| University | 2 |
+
+**When to use**: Only for ordinal variables with natural order.
 
 ## Scaling of Numerical Variables
 
