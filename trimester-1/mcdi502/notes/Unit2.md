@@ -58,3 +58,23 @@ Here is the Markdown table translated into English:
 | **Programming Model** | Rigid (Map/Reduce) | Flexible (RDD API) |
 | **Fault Tolerance** | Data replication | Lineage (recompute) |
 | **Failure Recovery** | Slow (rewrite data) | Fast (recompute partition) |
+
+**The five fundamental properties of an RDD**
+
+1. List of partitions (`partitions()`):
+   * The logical division of the dataset and the atomic unit of parallelism.
+   * Defines how the data is split across the cluster (e.g 1 GB file on HDFS divided into eith 128 MB parititions).
+2. Compute Function (`iterator(split, context)`):
+   * The execution logic used to compute each partition.
+   * Returns an iterator over a partition's records, this code is serialized and sent directly to a cluster `Executors`
+3. List of Dependencies (`dependencies()`):
+   * The RDD's lineage, tracking its parent RDDs.
+   * Classifies transformations as either Narrow (1 to 1 partition mapping like `map()`, no shuffle) or Wide (1 to many mapping like `groupByKey()`, requires a network shuffle).
+4. Partitioner (`partitiones`)(optional):
+   * Specifies how keys are distributed across partitions in Key-Value RDDs (e.g via HashPartitioner)
+   * Optimizes operations like `join()` by preventing expensive network shuffles if both RDDs share the same partitioner.
+5. Preferred Locations (`preferredLocations(split)`)(optional):
+   * Identifies which physical cluster nodes hold the underlying ata blocks (e.g HDFS block locations)
+   * Drives data locality by allowing the scheduler to run tasks on the nodes where the data already resides, minimizing network traffic.
+
+Understanding this anatomy makes it clear that an RDD is not simply a data container. It is an immutable, distributed execution plan. It is a recipe that tells Spark how to produce a dataset, how to do so in parallel, and how to rebuild it if something goes wrong.
